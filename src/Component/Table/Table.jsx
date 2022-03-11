@@ -22,6 +22,7 @@ export default function TableComp({data}) {
             <TableCell >Number of stars for the repo</TableCell>
             <TableCell >Number of issues for the repo.</TableCell>
             <TableCell >Username</TableCell>
+            <TableCell >Avtar</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -31,10 +32,10 @@ export default function TableComp({data}) {
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
                <TableCell >
-                <Button  onClick={() => history.push(`/graph/${row.owner.login}/${row.name}`)}>
+                <Button color='primary' onClick={() => history.push(`/graph/${row.owner.login}/${row.name}`)}>
                   showing Weekly or additions or deletions
                  </Button>
-                 <Button  onClick={() => history.push(`/contributor/${row.owner.login}/${row.name}`)}>
+                 <Button color='secondary' onClick={() => history.push(`/contributor/${row.owner.login}/${row.name}`)}>
                   per contributor additions/deletions/commits
                  </Button>
               </TableCell>
@@ -46,7 +47,7 @@ export default function TableComp({data}) {
               <TableCell >{row.score}</TableCell>
               <TableCell >{row.open_issues}</TableCell>
               <TableCell >{row.owner.login}</TableCell>
-             
+              <TableCell ><img src={row.owner.avatar_url} height="100px" width="100px" /> </TableCell>
             </TableRow>
           ))}
         </TableBody>
